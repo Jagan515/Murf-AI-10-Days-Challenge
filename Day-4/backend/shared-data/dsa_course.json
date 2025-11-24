@@ -1,0 +1,122 @@
+[
+  {
+    "id": "arrays",
+    "title": "Arrays",
+    "summary": "Arrays are contiguous memory locations storing elements of the same type. They provide O(1) access by index but fixed size. Useful for random access and cache-friendly operations.",
+    "sample_question": "What are the key characteristics and time complexities of array operations?"
+  },
+  {
+    "id": "linked-lists",
+    "title": "Linked Lists",
+    "summary": "Linked lists consist of nodes containing data and pointers to next nodes. Singly linked lists point forward, doubly linked lists point both ways. O(1) insertion/deletion at head, O(n) access by index.",
+    "sample_question": "Compare arrays and linked lists in terms of memory usage and operation efficiencies."
+  },
+  {
+    "id": "stacks",
+    "title": "Stacks",
+    "summary": "Stacks follow LIFO (Last-In-First-Out) principle. Operations: push (add), pop (remove), peek (view top). Used in function calls, undo operations, and DFS.",
+    "sample_question": "What is the LIFO principle and where are stacks commonly used?"
+  },
+  {
+    "id": "queues",
+    "title": "Queues",
+    "summary": "Queues follow FIFO (First-In-First-Out) principle. Operations: enqueue (add), dequeue (remove). Variations: circular queues, priority queues, deque. Used in BFS, task scheduling.",
+    "sample_question": "Explain FIFO and different types of queues with their use cases."
+  },
+  {
+    "id": "hash-tables",
+    "title": "Hash Tables",
+    "summary": "Hash tables store key-value pairs using hash functions to compute indexes. Average O(1) for insert, delete, search. Handles collisions with chaining or open addressing.",
+    "sample_question": "How do hash tables achieve average O(1) time complexity and handle collisions?"
+  },
+  {
+    "id": "trees",
+    "title": "Trees",
+    "summary": "Trees are hierarchical data structures with root, nodes, and leaves. Binary trees have at most two children per node. Used for hierarchical data and efficient searching.",
+    "sample_question": "What are the basic components of a tree and why are they useful?"
+  },
+  {
+    "id": "binary-search-trees",
+    "title": "Binary Search Trees",
+    "summary": "BSTs maintain ordering: left child < parent < right child. Provides O(log n) search, insert, delete in balanced case. Inorder traversal gives sorted order.",
+    "sample_question": "What ordering property does a BST maintain and what are its time complexities?"
+  },
+  {
+    "id": "avl-trees",
+    "title": "AVL Trees",
+    "summary": "AVL trees are self-balancing BSTs where height difference between left and right subtrees is at most 1. Uses rotations to maintain balance after insertions/deletions.",
+    "sample_question": "How do AVL trees maintain balance and what are the different rotation types?"
+  },
+  {
+    "id": "heaps",
+    "title": "Heaps",
+    "summary": "Heaps are complete binary trees with heap property: max-heap (parent >= children) or min-heap (parent <= children). Used for priority queues and heap sort.",
+    "sample_question": "What is the heap property and how are heaps used in priority queues?"
+  },
+  {
+    "id": "graphs",
+    "title": "Graphs",
+    "summary": "Graphs consist of vertices connected by edges. Can be directed/undirected, weighted/unweighted. Representations: adjacency matrix, adjacency list. Used for networks and relationships.",
+    "sample_question": "What are the different types of graphs and how can they be represented?"
+  },
+  {
+    "id": "graph-traversal",
+    "title": "Graph Traversal",
+    "summary": "BFS (Breadth-First Search) uses queues and explores level by level. DFS (Depth-First Search) uses stacks/recursion and explores as far as possible. Both O(V+E) for adjacency list.",
+    "sample_question": "Compare BFS and DFS in terms of approach, data structures, and use cases."
+  },
+  {
+    "id": "sorting-algorithms",
+    "title": "Sorting Algorithms",
+    "summary": "Comparison sorts: Bubble Sort O(n²), Merge Sort O(n log n), Quick Sort O(n log n) average. Non-comparison: Counting Sort O(n+k). Each has trade-offs between time, space, and stability.",
+    "sample_question": "Compare the time complexities and use cases of different sorting algorithms."
+  },
+  {
+    "id": "searching-algorithms",
+    "title": "Searching Algorithms",
+    "summary": "Linear Search O(n) checks each element. Binary Search O(log n) requires sorted array and halves search space. Interpolation Search O(log log n) for uniformly distributed data.",
+    "sample_question": "When would you use binary search over linear search and what are its requirements?"
+  },
+  {
+    "id": "dynamic-programming",
+    "title": "Dynamic Programming",
+    "summary": "DP solves complex problems by breaking into overlapping subproblems and storing results. Approaches: top-down (memoization) and bottom-up (tabulation). Used for optimization problems.",
+    "sample_question": "What is the principle of optimality and how does dynamic programming use it?"
+  },
+  {
+    "id": "greedy-algorithms",
+    "title": "Greedy Algorithms",
+    "summary": "Greedy algorithms make locally optimal choices at each step hoping for global optimum. Doesn't always guarantee optimal solution but often efficient. Examples: Dijkstra, Kruskal, Huffman coding.",
+    "sample_question": "What characterizes greedy algorithms and when are they applicable?"
+  },
+  {
+    "id": "recursion",
+    "title": "Recursion",
+    "summary": "Recursion solves problems by calling itself with smaller inputs. Requires base case to terminate and recursive case that progresses toward base case. Uses call stack, can be optimized with memoization.",
+    "sample_question": "What are the essential components of a recursive function and how does it use the call stack?"
+  },
+  {
+    "id": "time-complexity",
+    "title": "Time Complexity",
+    "summary": "Time complexity describes how runtime grows with input size. Common classes: O(1) constant, O(log n) logarithmic, O(n) linear, O(n²) quadratic, O(2^n) exponential. Big O describes upper bound.",
+    "sample_question": "What do different time complexity classes represent and how do you analyze them?"
+  },
+  {
+    "id": "space-complexity",
+    "title": "Space Complexity",
+    "summary": "Space complexity measures memory usage relative to input size. Includes auxiliary space (temporary) and input space. Important for memory-constrained environments.",
+    "sample_question": "How is space complexity different from time complexity and why is it important?"
+  },
+  {
+    "id": "divide-conquer",
+    "title": "Divide and Conquer",
+    "summary": "Divide and conquer breaks problems into smaller subproblems, solves them recursively, and combines results. Examples: Merge Sort, Quick Sort, Binary Search. Often leads to O(n log n) solutions.",
+    "sample_question": "What are the three steps of divide and conquer and what problems is it good for?"
+  },
+  {
+    "id": "backtracking",
+    "title": "Backtracking",
+    "summary": "Backtracking builds candidates incrementally and abandons candidates (backtracks) when they cannot lead to valid solution. Used for constraint satisfaction problems like N-Queens, Sudoku.",
+    "sample_question": "How does backtracking work and what types of problems is it suitable for?"
+  }
+]
