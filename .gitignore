@@ -1,7 +1,4 @@
-/Users/jaganpradhan/Desktop/Level3/Ai Agent/Day-2/backend/.env.local
-/Users/jaganpradhan/Desktop/Level3/Ai Agent/Day-2/frontend/.env.local
-/Users/jaganpradhan/Desktop/Level3/Ai Agent/Day-1/backend/.env.local
-/Users/jaganpradhan/Desktop/Level3/Ai Agent/Day-1/frontend/.env.local
+
 
 # In case there are other env files
 *.env
