@@ -1,104 +1,105 @@
-# Day 2: Coffee Shop Barista Agent
+# Health & Wellness Voice Companion
 
-Welcome to **Day 2** of the **Murf AI Voice Agent Challenge**! Building on yesterday's starter agent, today we'll transform it into a **friendly coffee shop barista** that handles voice orders seamlessly. Using Murf Falcon's ultra-fast TTS for natural responses, your agent will guide customers through their order and save a clean JSON summary. ☕
+[![Murf AI Voice Agent Challenge](https://img.shields.io/badge/Murf%20AI-Voice%20Agent%20Challenge-blueviolet)](https://www.murf.ai/)  
+**Day 3 of the 10 Days of AI Voice Agents Challenge** – Built with [LiveKit Agents](https://docs.livekit.io/agents/) and the fastest TTS API, [Murf Falcon](https://www.murf.ai/).
 
-## 🎯 Objective
-Create a conversational barista agent that collects full coffee orders via voice, maintains state, and persists the result. Focus on the **primary goal** for completion—the **advanced challenge** is for extra flair!
+## Overview
 
-## 📋 Primary Goal (Required)
-Turn your agent into a **persona-driven barista** for your favorite coffee brand (e.g., "Starbrew" or "Cosmic Brews"). The agent must:
+This is a **supportive voice agent** designed for daily health and wellness check-ins. It acts as a grounded companion: asking about mood/energy, helping set 1-3 simple intentions, offering realistic reflections, and recapping the session. All data is persisted in a JSON log for continuity across sessions (e.g., referencing past moods/goals).
 
-- **Maintain Order State**: Use a simple JSON object to track the order:
-  ```json
+- **Core Flow**: Greeting → Mood check → Goal setting → Quick advice → Recap & save.
+- **Voice-First**: Powered by LiveKit for real-time voice (STT: Deepgram, LLM: Google Gemini, TTS: Murf AI).
+- **Persistence**: Saves to `records/wellness_log.json` – no external DB needed.
+- **Ethical Guardrails**: Non-diagnostic, non-medical; focuses on empathy and small actions.
+
+Built for the **Murf AI Voice Agent Challenge** – check out my [LinkedIn post](https://www.linkedin.com/posts/YOUR_POST_HERE) with a demo video!
+
+## Features
+
+- **Daily Check-Ins**: Short (1-2 min) voice conversations.
+- **Mood & Energy Tracking**: User self-reports (text or 1-10 scale).
+- **Goal Setting**: 1-3 practical intentions (e.g., "walk, email, rest").
+- **Reflections**: Actionable, low-pressure suggestions (e.g., "Try a 5-min break").
+- **Recap & Confirmation**: Ensures accuracy before saving.
+- **Historical Context**: References last session's mood/goals.
+- **Token-Aware**: Prompts steer long chats to wrap up efficiently.
+- **Extensible**: Ready for MCP integrations (e.g., Todoist tasks) – see Advanced Goals below.
+
+### Data Schema (`records/wellness_log.json`)
+Human-readable array of entries:
+```json
+[
   {
-    "drinkType": "string",  // e.g., "cappuccino"
-    "size": "string",       // e.g., "large"
-    "milk": "string",       // e.g., "whole" or "none"
-    "extras": ["string"],   // e.g., ["whipped cream", "extra shot"]
-    "name": "string"        // e.g., "Alex Johnson"
+    "date": "2025-11-23",
+    "time": "10:30:00",
+    "mood": "7/10, energized",
+    "objectives": ["10-min walk", "finish report", "read book"],
+    "summary": "User reported positive energy and proactive goals."
   }
+]
+```
+
+## Quick Start
+
+### Prerequisites
+- Python 3.10+
+- [LiveKit CLI](https://docs.livekit.io/getting-started/create-room/#install-the-cli) installed.
+- API Keys: Set in `.env.local`:
   ```
+  LIVEKIT_URL=your_livekit_url
+  LIVEKIT_API_KEY=your_api_key
+  LIVEKIT_API_SECRET=your_api_secret
+  DEEPGRAM_API_KEY=your_deepgram_key
+  GOOGLE_API_KEY=your_google_key  # For Gemini
+  MURF_API_KEY=your_murf_key
+  ```
+- Install deps: `pip install -r requirements.txt` (or `livekit-agents[murf,deepgram,google,silero]`).
 
-- **Conversational Behavior**:
-  - Greet warmly and ask clarifying questions step-by-step (e.g., "What drink can I get for you today?" → "What size?" → "Milk preference?" → "Any extras?" → "Name for the order?").
-  - Continue until **all fields** are filled—no rushing!
-  - Once complete, confirm the order verbally and save it as a timestamped JSON file (e.g., `order_20251123_100209.json`).
+### Setup
+1. Clone/Fork this repo.
+2. Create `.env.local` with keys above.
+3. Run the agent: `python src/agent.py`.
+4. In another terminal, start a room: `lk room create --num-participants 2`.
+5. Connect via [LiveKit Browser Demo](https://meet.livekit.io/) (paste room URL/token).
 
-**Implementation Notes** (My Updates):
-- I've customized the barista persona in `agent.py` to be a cheerful "Starbrew" employee with engaging prompts and Murf Falcon TTS for lively responses.
-- Orders are automatically saved as JSON files in the `backend/orders/` folder for easy review (e.g., sample orders from testing: `order_20251123_100209_317531.json` for a large cappuccino with whole milk, no extras, for Akshat Patapting).
+### Usage
+- Speak naturally: Agent greets and guides.
+- Example Session:
+  - Agent: "Hi! How are you feeling today?"
+  - You: "Pretty good, 8/10 energy."
+  - Agent: "Nice—what's 1-3 things for today?"
+  - You: "Gym, call mom, cook dinner."
+  - Agent: "Solid plan. For the gym, start with warm-ups. Recap: Mood 8/10, goals gym/call/cook. Right?"
+  - You: "Yes."
+  - Agent: "Saved—talk soon!"
+- Check `records/wellness_log.json` post-session.
 
-**Implementation Tips**:
-- Use LiveKit tools for state management and function calls (e.g., `set_drink_type`, `set_size`).
-- Integrate Murf Falcon TTS for engaging, barista-like responses with emojis (e.g., "Got it, a large cappuccino! ☕").
+## Testing
+- **Voice Commands**: See [VOICE_COMMANDS.md](VOICE_COMMANDS.md) for sample scripts.
+- **Multi-Session**: Run 2+ times; agent references history.
+- **Edge Cases**: Test low mood, no goals, or drifts—agent stays supportive.
+- **Metrics**: Logs usage (tokens, latency) via LiveKit.
 
-#### Key Resources
-- [LiveKit Tools](https://docs.livekit.io/agents/build/tools/) – For defining order functions.
-- [Passing State in Agents](https://docs.livekit.io/agents/build/agents-handoffs/#passing-state) – Manage your JSON order object.
-- [Agent Tasks](https://docs.livekit.io/agents/build/tasks/) – Handle sequential questioning.
-- [Drive-Thru Example](https://github.com/livekit/agents/blob/main/examples/drive-thru/agent.py) – Adapt this for coffee orders.
+## Advanced Goals (Implemented Optionally)
+- **MCP Integration**: Add Todoist/Notion via [LiveKit MCP](https://docs.livekit.io/agents/build/tools/#external-tools-and-mcp). Say "Turn goals into tasks" to trigger.
+- **Weekly Reflections**: Query JSON for trends (e.g., "Mood this week?") – avg score, goal completion.
+- **Reminders**: Confirm & schedule via Zapier/Google Calendar MCP.
 
-## 🚀 Advanced Challenge (Optional)
-Level up with a visual twist:
-- **Dynamic HTML Rendering**: Generate an HTML "drink image" or order receipt that updates in real-time based on the order.
-  - Examples:
-    - **Size**: Small cup (compact div) vs. large (expanded).
-    - **Extras**: Add whipped cream as a CSS-drawn swirl on top.
-    - **Receipt**: A styled table summarizing the order with total (e.g., $4.50).
-- Stream the HTML via LiveKit to the frontend for display during/after the conversation.
+To extend: Edit `Assistant` class in `src/agent.py` for new tools/prompts.
 
-#### Key Resources
-- [Text Streams](https://docs.livekit.io/home/client/data/text-streams/) – Push HTML updates to the UI.
-- [RPC for Client-Server](https://docs.livekit.io/home/client/data/rpc/) – Trigger visuals from agent events.
+## Architecture
+- **Backend**: `src/agent.py` – LiveKit JobContext → AgentSession → Murf TTS.
+- **Persistence**: JSON append in `save_checkin` tool.
+- **Frontend**: Browser-based LiveKit room (no custom UI needed).
 
-## 📝 Steps to Complete
+## Contributing / Challenge Notes
+Part of the **Murf AI Voice Agent Challenge** – using Murf Falcon for ultra-fast, natural TTS. Days 1-2: Basic agents; Day 3: This wellness companion. Follow for Days 4-10!
 
-### Step 1: Build the Barista Agent
-- Update your backend (`src/agent.py`) with the barista persona, tools for each order field, and JSON saving logic.
-- Test locally: Run backend/frontend and simulate a full order.
+Tag [@MurfAI](https://www.linkedin.com/company/murf-ai/) on LinkedIn. Hashtags: #MurfAIVoiceAgentsChallenge #10DaysofAIVoiceAgents
 
-### Step 2: Test in Browser
-- Connect via `http://localhost:3000`.
-- Place a complete coffee order (e.g., "Large latte with oat milk and cinnamon, for Sarah").
-- Ensure the agent fills all state fields and saves the JSON.
-
-### Step 3: Record Your Session
-- Capture a 30-60 second video:
-  - Voice interaction placing the order.
-  - Screen showing the final JSON file (open it in your editor).
-- Tools: Loom, QuickTime, or OBS.
-
-### Step 4: Share on LinkedIn
-- **Post Template**:
-  > "Day 2 of the Murf AI Voice Agent Challenge: My coffee barista agent is brewing! ☕ Built with LiveKit and Murf Falcon's fastest TTS API, it takes voice orders, manages state, and saves JSON summaries. Placed a latte order – watch!  
-  >  
-  > Loving this 10-day sprint into voice AI. Join the fun! #MurfAIVoiceAgentsChallenge #10DaysofAIVoiceAgents @Murf AI"
-- **Must-Haves**:
-  - Describe your implementation (e.g., "Added tools for drink, size, milk, extras, and name").
-  - Mention: "Building voice agents using the fastest TTS API - Murf Falcon."
-  - Part of: “Murf AI Voice Agent Challenge”.
-  - Tag: @Murf AI.
-  - Hashtags: #MurfAIVoiceAgentsChallenge #10DaysofAIVoiceAgents.
-- Engage: Tag challenge participants and ask for their Day 2 creations!
-
-## ✅ Completion Checklist
-- [ ] Barista persona implemented with order state JSON.
-- [ ] Agent asks questions until complete; saves JSON file.
-- [ ] (Optional) HTML visuals for drink/receipt.
-- [ ] Browser test: Full order placed successfully.
-- [ ] Video recorded (interaction + JSON proof).
-- [ ] LinkedIn post live with video and all elements.
-
-## 🚀 Next Up
-Nailed Day 2? Tomorrow (Day 3), we'll add multi-turn memory and personalization. Keep your JSON orders in `backend/orders/` for reference!
-
-**Resources Recap**:
-- Full Challenge Repo: [GitHub](https://github.com/murf-ai/ten-days-of-voice-agents-2025).
-- Murf Falcon: [Docs](https://docs.murf.ai/) – Optimize TTS voices for your barista.
-- LiveKit Community: [Discord](https://livekit.io/discord) – Get stuck? Ask away!
-
-High-five on your barista bot—orders are flowing! Let's keep the momentum. 🎙️☕
+## License
+MIT – Free to use/modify. Questions? Open an issue.
 
 ---
 
-*This README is part of the Murf AI 10 Days of Voice Agents Challenge. Updated on November 23, 2025, with changes to `agent.py` and sample orders saved in `backend/orders/` as JSON files.*
+*Built with ❤️ for wellness. Last updated: Nov 23, 2025.*
