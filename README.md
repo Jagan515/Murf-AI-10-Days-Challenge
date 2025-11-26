@@ -12,7 +12,7 @@ We just launched **Murf Falcon** – the consistently fastest TTS API, and you'r
 - Post on GitHub and share with the world on LinkedIn!
 
 ## 📅 My Challenge Progress
-I've completed the first five days—check the daily folders for code, READMEs, and sample outputs. Each day builds on the starter, with updates to `agent.py` and more!
+I've completed the first six days—check the daily folders for code, READMEs, and sample outputs. Each day builds on the starter, with updates to `agent.py` and more!
 
 | Day | Date Completed | Focus | Key Achievements |
 |-----|----------------|-------|------------------|
@@ -21,10 +21,11 @@ I've completed the first five days—check the daily folders for code, READMEs, 
 | **Day 3** | 23 November 2025 | Health & Wellness Voice Companion | Built supportive voice agent for daily mood/energy check-ins, goal setting, and realistic reflections. Persists data in `records/wellness_log.json` with historical references. Added `save_checkin` tool; tested multi-session continuity and shared LinkedIn video. [Details → Day-3/README.md](Day-3/README.md) |
 | **Day 4** | 24 November 2025 | Active Recall Coach | Built multi-voice tutor agent with three learning modes (learn, quiz, teach_back) using Murf Falcon voices (Matthew, Alicia, Ken). Implemented course system with JSON content for Go and DSA courses. Added mode switching and concept selection tools. [Details → Day-4/README.md](Day-4/README.md) |
 | **Day 5** | 26 November 2025 | Simple FAQ SDR + Lead Capture | Built voice SDR for Jar micro-savings app; FAQ keyword search tool for digital gold queries, progressive lead qual (name/company/email/role/use case/team/timeline), end-summary & JSON save in `leads/`. Tested full qual flow and shared LinkedIn video. [Details → Day-5/README.md](Day-5/README.md) |
-| **Day 6** | TBD | Advanced Agent Capabilities | Coming soon... |
+| **Day 6** | 27 November 2025 | Fraud Alert Voice Agent | Built SBI fraud bot; loads JSON DB cases, verifies via security Q, confirms tx (safe/fraud/failed), updates status/outcome. Tools for find/verify/describe/handle; tested all flows + DB persistence; shared LinkedIn video. [Details → Day-6/README.md](Day-6/README.md) |
+| **Day 7** | TBD | Advanced Agent Capabilities | Coming soon... |
 | ... | ... | ... | ... (Full 10 days ahead!) |
 
-*Track progress via commits, JSON order logs (e.g., sample orders from Day 2 testing: `order_20251123_100209_317531.json` for a large cappuccino), wellness logs (e.g., `wellness_log.json` entries for Day 3 moods/goals), tutor courses (Day 4), lead captures (e.g., `lead_20251126_100000.json` for Day 5), and daily videos on LinkedIn. All days build cumulatively—run the full stack for the latest agent!*
+*Track progress via commits, JSON order logs (e.g., sample orders from Day 2 testing: `order_20251123_100209_317531.json` for a large cappuccino), wellness logs (e.g., `wellness_log.json` entries for Day 3 moods/goals), tutor courses (Day 4), lead captures (e.g., `lead_20251126_100000.json` for Day 5), fraud DB updates (e.g., `fraud_cases.json` with confirmed_safe/fraud entries for Day 6), and daily videos on LinkedIn. All days build cumulatively—run the full stack for the latest agent!*
 
 ## Repository Structure
 This is a **monorepo** that contains both the backend and frontend for building voice agent applications. It's designed to be your starting point for each day's challenge task. I've restructured it with daily folders for easy progression, and fixed submodule issues to make Day-1 and Day-2 normal directories (no more gitlinks—contents now fully visible and expandable on GitHub).
@@ -65,6 +66,13 @@ Murf-AI-10-Days-Challenge/
 │   ├── LICENSE             # MIT License for Day 5
 │   ├── README.md           # Day 5 details and setup
 │   └── start_app.sh        # Convenience script for Day 5
+├── Day-6/                  # Day 6: Fraud Alert Voice Agent
+│   ├── backend/            # Updated Python agent (includes src/agent.py with fraud tools, fraud_database/ JSON cases)
+│   │   └── fraud_database/ # Sample fraud JSONs (e.g., fraud_cases.json with pending/reviewed entries)
+│   ├── frontend/           # Updated Next.js UI (SBI-themed)
+│   ├── LICENSE             # MIT License for Day 6
+│   ├── README.md           # Day 6 details and setup
+│   └── start_app.sh        # Convenience script for Day 6
 ├── .gitignore              # Global Git ignores (e.g., .env.local, node_modules)
 └── README.md               # This main file!
 ```
@@ -79,7 +87,7 @@ The backend is based on [LiveKit's agent-starter-python](https://github.com/live
 - Integrated metrics and logging.
 - Complete test suite with evaluation framework.
 - Production-ready Dockerfile.  
-[→ Backend Documentation](./Day-1/backend/README.md) (Applies to daily backends; Day-2 has barista-specific updates in `src/agent.py`; Day-3 adds wellness persistence in `records/`; Day-4 adds multi-voice tutor system in `shared-data/`; Day-5 adds SDR FAQ/lead tools in `leads/`).
+[→ Backend Documentation](./Day-1/backend/README.md) (Applies to daily backends; Day-2 has barista-specific updates in `src/agent.py`; Day-3 adds wellness persistence in `records/`; Day-4 adds multi-voice tutor system in `shared-data/`; Day-5 adds SDR FAQ/lead tools in `leads/`; Day-6 adds fraud DB load/update in `fraud_database/`).
 
 ### Frontend
 The frontend is based on [LiveKit's agent-starter-react](https://github.com/livekit-examples/agent-starter-react), providing a modern, beautiful UI for interacting with your voice agents.  
@@ -108,7 +116,7 @@ cd Murf-AI-10-Days-Challenge
 
 ### 2. Backend Setup (Per Day)
 ```bash
-cd Day-*/backend  # e.g., Day-5/backend
+cd Day-*/backend  # e.g., Day-6/backend
 # Install dependencies
 uv sync
 # Copy environment file and configure
@@ -131,7 +139,7 @@ lk app env -w -d .env.local
 
 ### 3. Frontend Setup (Per Day)
 ```bash
-cd Day-*/frontend  # e.g., Day-5/frontend
+cd Day-*/frontend  # e.g., Day-6/frontend
 # Install dependencies
 pnpm install
 # Copy environment file and configure
@@ -148,7 +156,7 @@ brew install livekit
 You have two options:
 #### Option A: Use the Convenience Script (Runs Everything)
 ```bash
-# From a daily root (e.g., Day-5/)
+# From a daily root (e.g., Day-6/)
 chmod +x start_app.sh
 ./start_app.sh
 ```
@@ -205,8 +213,8 @@ This project is based on MIT-licensed templates from LiveKit and includes integr
 
 ## Have Fun!
 Remember, the goal is to learn, experiment, and build amazing voice AI agents. Don't hesitate to be creative and push the boundaries of what's possible with Murf Falcon and LiveKit!  
-Good luck with the challenge—I'm on Day 6 next! ☕🎙️
+Good luck with the challenge—I'm on Day 7 next! ☕🎙️
 
 ---
 
-*Built for the AI Voice Agents Challenge by murf.ai. My fork updated on November 26, 2025.*
+*Built for the AI Voice Agents Challenge by murf.ai. My fork updated on November 27, 2025.*
