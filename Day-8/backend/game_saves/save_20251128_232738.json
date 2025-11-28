@@ -1,0 +1,23 @@
+{
+  "player": {
+    "name": "Brave Explorer",
+    "health": 100,
+    "karma": 57,
+    "inventory": [
+      "Torch",
+      "Lota (Water Vessel)",
+      "Roti"
+    ],
+    "location": "village_entrance",
+    "rupees": 100,
+    "blessings": 0
+  },
+  "events": {
+    "met_storyteller": false,
+    "received_blessing": false,
+    "raja_encounter": false,
+    "villagers_helped": 1
+  },
+  "conversation_summary": "\ud83c\udf89 Your Adventure Summary:\n\n\ud83d\udd49\ufe0f Final Karma: 57\n\ud83d\ude4f Blessings Earned: 0\n\ud83e\udd1d Villagers Helped: 1\n\nYour journey has been one of growth and learning. The jungle acknowledges your balanced path and pure intentions.\n\nThank you for exploring the mystical lands of India with me. May your real-life journey be filled with the same wonder and wisdom!",
+  "timestamp": "2025-11-28T23:23:55.742378"
+}

@@ -1,0 +1,66 @@
+{
+  "game": "Jungle Raja Adventure",
+  "description": "An immersive Indian jungle adventure where you explore mystical villages, ancient temples, and solve spiritual riddles guided by Rajkumar Veer, the Jungle Raja.",
+  "locations": {
+    "village_entrance": {
+      "name": "Shanti Gram Village Entrance",
+      "description": "A peaceful Indian village with colorful huts, the scent of spices in the air, and children playing near a banyan tree.",
+      "connections": [
+        "village_square",
+        "temple",
+        "jungle_edge"
+      ],
+      "ambience": "You hear temple bells and the distant sound of a sitar"
+    },
+    "village_square": {
+      "name": "Village Chowk",
+      "description": "The bustling heart of the village with market stalls selling spices, fabrics, and street food.",
+      "connections": [
+        "village_entrance",
+        "spice_market",
+        "elder_hut"
+      ],
+      "ambience": "The air is filled with the aroma of masala chai and sizzling pakoras"
+    },
+    "temple": {
+      "name": "Ancient Shiva Temple",
+      "description": "A magnificent stone temple with intricate carvings of gods and goddesses.",
+      "connections": [
+        "village_entrance",
+        "sacred_pool"
+      ],
+      "ambience": "You hear the chanting of mantras and the gentle ringing of prayer bells"
+    },
+    "jungle_edge": {
+      "name": "Dense Jungle Border",
+      "description": "Where civilization meets the wild. The jungle ahead is thick with bamboo and teak trees.",
+      "connections": [
+        "village_entrance",
+        "bamboo_forest",
+        "river_ghat"
+      ],
+      "ambience": "Monkeys chatter in the distance and peacocks call from the treetops"
+    }
+  },
+  "npcs": {
+    "storyteller": {
+      "name": "Baba Gyan",
+      "location": "village_square",
+      "dialogue": "Ah, a seeker! The Jungle Raja awaits those with pure intentions and courage.",
+      "personality": "Wise and mystical storyteller"
+    },
+    "sadhu": {
+      "name": "Swami Ananda",
+      "location": "river_ghat",
+      "dialogue": "The jungle tests not your strength, but your heart. Help others, show compassion.",
+      "personality": "Enlightened spiritual guide"
+    }
+  },
+  "quests": {
+    "find_jungle_raja": {
+      "name": "Meet the Jungle Raja",
+      "description": "Find the legendary Jungle Raja and receive his blessing",
+      "status": "active"
+    }
+  }
+}

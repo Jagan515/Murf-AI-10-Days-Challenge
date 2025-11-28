@@ -1,0 +1,172 @@
+# Voice Game Master: Jungle Raja Adventure
+
+[![Murf AI Voice Agent Challenge](https://img.shields.io/badge/Murf%20AI-Voice%20Agent%20Challenge-blueviolet)](https://www.murf.ai/)  
+**Day 8 of the 10 Days of AI Voice Agents Challenge** – Built with [LiveKit Agents](https://docs.livekit.io/agents/) and the fastest TTS API, [Murf Falcon](https://www.murf.ai/).
+
+## Overview
+
+This is a **D&D-style voice Game Master** named **Rajkumar Veer (Jungle Raja)**, guiding players through a mystical Indian jungle adventure. Set in a spiritual world of ancient temples, wise sadhus, and karma-driven quests, it narrates scenes poetically, responds to actions, tracks player state (karma, inventory, blessings), and evolves the story based on choices. Sessions are immersive (8-15 turns), ending in a mini-arc like earning the Raja's blessing. All via voice – no typing needed!
+
+- **Persona**: Majestic Jungle Raja – Wise, poetic, with Indian flair ("Namaste, brave explorer!").
+- **Universe**: Mystical Indian wilderness – Villages, jungles, riddles; themes of dharma/karma.
+- **Ethical Note**: Light-hearted; no violence; focuses on compassion/wisdom.
+
+Built for the **Murf AI Voice Agent Challenge** – check out my [LinkedIn post](https://www.linkedin.com/posts/YOUR_POST_HERE) with a demo video! (Play through a quest, see state updates.)
+
+## Features
+
+- **Epic Greeting & Narration**: Starts: "Namaste! I am Rajkumar Veer... Where shall our journey begin?" Describes locations vividly (e.g., "Banyan tree whispers secrets...").
+- **Interactive Movement**: "Go to temple" → Moves, triggers events/NPCs (e.g., meets Baba Gyan: "Ah, a seeker!").
+- **Player State Tracking**: JSON in-memory: Health/karma/inventory/blessings; updates on actions (e.g., +karma for helping villagers).
+- **Mechanics & Choices**: Tools for moving (`move_to_location`), status (`check_status`), deeds (`help_villagers`), riddles (`solve_riddle` – "Contentment is greatest wealth!"), saving (`save_game`).
+- **Quest Progression**: Active "Meet Jungle Raja" – Riddles/deeds unlock blessings; ends with summary (`end_adventure`).
+- **Voice Immersion**: Murf Falcon TTS (en-US-ken for majestic male tone) + Deepgram STT + Gemini LLM. Multilingual for Hindi mixes.
+- **Persistence**: Saves to `game_saves/save_{timestamp}.json`; loads world from `game_saves/world_setup.json`.
+
+### Sample World Setup (`game_saves/world_setup.json`)
+JSON defines universe (locations, NPCs, quests):
+
+```json
+{
+  "game": "Jungle Raja Adventure",
+  "description": "An immersive Indian jungle adventure where you explore mystical villages, ancient temples, and solve spiritual riddles guided by Rajkumar Veer, the Jungle Raja.",
+  "locations": {
+    "village_entrance": {
+      "name": "Shanti Gram Village Entrance",
+      "description": "A peaceful Indian village with colorful huts, the scent of spices in the air, and children playing near a banyan tree.",
+      "connections": ["village_square", "temple", "jungle_edge"],
+      "ambience": "You hear temple bells and the distant sound of a sitar"
+    },
+    "village_square": {
+      "name": "Village Chowk",
+      "description": "The bustling heart of the village with market stalls selling spices, fabrics, and street food.",
+      "connections": ["village_entrance", "spice_market", "elder_hut"],
+      "ambience": "The air is filled with the aroma of masala chai and sizzling pakoras"
+    },
+    "temple": {
+      "name": "Ancient Shiva Temple",
+      "description": "A magnificent stone temple with intricate carvings of gods and goddesses.",
+      "connections": ["village_entrance", "sacred_pool"],
+      "ambience": "You hear the chanting of mantras and the gentle ringing of prayer bells"
+    },
+    "jungle_edge": {
+      "name": "Dense Jungle Border",
+      "description": "Where civilization meets the wild. The jungle ahead is thick with bamboo and teak trees.",
+      "connections": ["village_entrance", "bamboo_forest", "river_ghat"],
+      "ambience": "Monkeys chatter in the distance and peacocks call from the treetops"
+    }
+  },
+  "npcs": {
+    "storyteller": {
+      "name": "Baba Gyan",
+      "location": "village_square",
+      "dialogue": "Ah, a seeker! The Jungle Raja awaits those with pure intentions and courage.",
+      "personality": "Wise and mystical storyteller"
+    },
+    "sadhu": {
+      "name": "Swami Ananda",
+      "location": "river_ghat",
+      "dialogue": "The jungle tests not your strength, but your heart. Help others, show compassion.",
+      "personality": "Enlightened spiritual guide"
+    }
+  },
+  "quests": {
+    "find_jungle_raja": {
+      "name": "Meet the Jungle Raja",
+      "description": "Find the legendary Jungle Raja and receive his blessing",
+      "status": "active"
+    }
+  }
+}
+```
+
+### Game State Schema (In-Memory/Saved)
+Example after play:
+```json
+{
+  "player": {
+    "name": "Brave Explorer",
+    "health": 100,
+    "karma": 75,
+    "inventory": ["Torch", "Lota (Water Vessel)", "Roti"],
+    "location": "temple",
+    "rupees": 100,
+    "blessings": 1
+  },
+  "events": {
+    "met_storyteller": true,
+    "received_blessing": true,
+    "raja_encounter": false,
+    "villagers_helped": 2
+  },
+  "conversation_summary": "Exploring Ancient Shiva Temple. Karma: 75. Blessings: 1. Villagers helped: 2.",
+  "timestamp": "2025-11-29T14:30:22Z"
+}
+```
+
+## Quick Start
+
+### Prerequisites
+- Python 3.10+.
+- [LiveKit CLI](https://docs.livekit.io/getting-started/create-room/#install-the-cli).
+- API Keys in `.env.local`:
+  ```
+  LIVEKIT_URL=your_livekit_url
+  LIVEKIT_API_KEY=your_api_key
+  LIVEKIT_API_SECRET=your_api_secret
+  DEEPGRAM_API_KEY=your_deepgram_key
+  GOOGLE_API_KEY=your_google_key  # For Gemini
+  MURF_API_KEY=your_murf_key
+  ```
+- Install: `pip install -r requirements.txt` (or `livekit-agents[murf,deepgram,google,silero]`).
+
+### Setup
+1. Clone/Fork this repo.
+2. Code auto-creates `game_saves/world_setup.json` if missing.
+3. Create `.env.local` with keys.
+4. Run agent: `python src/agent.py`.
+5. Start room: `lk room create --num-participants 2`.
+6. Connect via [LiveKit Browser Demo](https://meet.livekit.io/) (Jungle-themed UI at http://localhost:3000).
+
+### Usage
+- **Start Adventure**: Agent greets: "Namaste, brave explorer! ... Village or jungle?"
+- **Navigate**: "Go to temple" → Describes, triggers NPC/event.
+- **Act**: "Help villagers" → +Karma, story advances.
+- **Check**: "Status?" → Shows health/karma/inventory.
+- **Riddle**: Answer "contentment" → Blessing unlocked!
+- **Save/End**: "Save game" → JSON save; "End adventure" → Summary.
+
+## Testing
+- **Voice Commands** (Full Session):
+  - **Start/Explore**: "Go to village square" → Meets Baba Gyan, +karma.
+  - **Deed**: "Help villagers" → "You help elders... Karma +10!"
+  - **Riddle**: "Solve riddle" → "Contentment" → Success/blessing.
+  - **Status**: "Check status" → Displays sheet.
+  - **End**: "End adventure" → Poetic summary; saves JSON.
+- **Multi-Turn**: 8-15 exchanges → Quest progress (e.g., Raja encounter).
+- **Verify JSON**: Post-save, open `game_saves/save_*.json` – State updated?
+- **Edge Cases**: Invalid location → "That path is hidden..."; Low karma → Alternate endings.
+
+## Advanced Goals (Implemented)
+- **JSON World State**: Full locations/NPCs/quests/events in `world_setup.json`; in-memory `game_state` updated per turn.
+- **Player Sheet/Inventory**: Tracks karma/blessings/inventory; queries via `check_status`.
+- **Mechanics**: Karma +/- on deeds/riddles; random gains for replayability.
+- **Save/Resume**: `save_game` tool → JSON export; reloads on new session (manual for now).
+- **Universe Preset**: Fixed Jungle Raja; expandable via prompt swaps.
+
+## Architecture
+- **Backend**: `src/agent.py` – JungleRajaAgent with tools (`move_to_location`, `solve_riddle`, etc.). Loads `world_setup.json`; saves to `game_saves/`. Pre-warms world.
+- **Frontend**: Jungle-themed (green gradients, lotus icons) – Transcript shows poetic narration; optional "Restart" button.
+- **Flow**: Greeting → Action tools → State update → Narration + prompt → Loop till end.
+
+## Contributing / Challenge Notes
+Part of the **Murf AI Voice Agent Challenge** – using Murf Falcon for majestic, immersive TTS in adventures. Days 1-7: Starter to shopping; Day 8: This Jungle Raja GM (karma-driven quests). Follow for Days 9-10!
+
+Tag [@MurfAI](https://www.linkedin.com/company/murf-ai/) on LinkedIn. Hashtags: #MurfAIVoiceAgentsChallenge #10DaysofAIVoiceAgents
+
+## License
+MIT – Free to use/modify. Questions? Open an issue.
+
+---
+
+*Built with ❤️ for epic quests. Last updated: Nov 29, 2025.*
