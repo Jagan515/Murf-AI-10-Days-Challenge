@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ORD-20251130-101935-2522",
+    "items": [
+      {
+        "product_id": "tshirt-001",
+        "product_name": "Cotton T-Shirt",
+        "quantity": 1,
+        "unit_price": 899,
+        "currency": "INR"
+      }
+    ],
+    "total": 899,
+    "currency": "INR",
+    "created_at": "2025-11-30T10:19:35.733622",
+    "status": "confirmed"
+  },
+  {
+    "id": "ORD-20251130-103140-8570",
+    "items": [
+      {
+        "product_id": "mug-001",
+        "product_name": "Stoneware Coffee Mug",
+        "quantity": 2,
+        "unit_price": 800,
+        "currency": "INR",
+        "brand": "Artisan Pottery",
+        "color": "white"
+      }
+    ],
+    "total": 1600,
+    "currency": "INR",
+    "created_at": "2025-11-30T10:31:40.090431",
+    "status": "confirmed",
+    "shipping_address": "To be provided",
+    "payment_method": "Voice Order"
+  },
+  {
+    "id": "ORD-20251130-104100-2620",
+    "items": [
+      {
+        "product_id": "backpack-001",
+        "product_name": "College Student Backpack",
+        "quantity": 1,
+        "unit_price": 1599,
+        "currency": "INR",
+        "brand": "Campus Gear",
+        "color": "blue"
+      }
+    ],
+    "total": 1599,
+    "currency": "INR",
+    "created_at": "2025-11-30T10:41:00.252249",
+    "status": "confirmed",
+    "shipping_address": "To be provided",
+    "payment_method": "Voice Order"
+  }
+]

@@ -1,0 +1,550 @@
+[
+  {
+    "id": "mug-001",
+    "name": "Stoneware Coffee Mug",
+    "description": "Handcrafted ceramic mug perfect for your morning chai or coffee. Microwave and dishwasher safe with elegant finish.",
+    "price": 800,
+    "currency": "INR",
+    "category": "mugs",
+    "subcategory": "drinkware",
+    "color": "white",
+    "material": "ceramic",
+    "size": "standard",
+    "brand": "Artisan Pottery",
+    "tags": [
+      "coffee",
+      "tea",
+      "ceramic",
+      "handmade",
+      "microwave-safe",
+      "dishwasher-safe"
+    ],
+    "in_stock": true,
+    "stock_quantity": 45,
+    "rating": 4.5,
+    "review_count": 23,
+    "images": [
+      "mug-001-1.jpg",
+      "mug-001-2.jpg"
+    ],
+    "features": [
+      "Microwave Safe",
+      "Dishwasher Safe",
+      "Handcrafted",
+      "Elegant Finish"
+    ],
+    "weight": "350g",
+    "dimensions": "8cm x 8cm x 10cm"
+  },
+  {
+    "id": "mug-002",
+    "name": "Blue Ceramic Tea Mug with Handle",
+    "description": "Beautiful blue ceramic mug with traditional Indian patterns. Perfect for tea lovers with comfortable handle.",
+    "price": 950,
+    "currency": "INR",
+    "category": "mugs",
+    "subcategory": "drinkware",
+    "color": "blue",
+    "material": "ceramic",
+    "size": "standard",
+    "brand": "Desi Designs",
+    "tags": [
+      "tea",
+      "ceramic",
+      "traditional",
+      "blue",
+      "hand-painted",
+      "indian-patterns"
+    ],
+    "in_stock": true,
+    "stock_quantity": 32,
+    "rating": 4.7,
+    "review_count": 18,
+    "images": [
+      "mug-002-1.jpg",
+      "mug-002-2.jpg"
+    ],
+    "features": [
+      "Traditional Patterns",
+      "Comfortable Handle",
+      "Hand Painted",
+      "Premium Finish"
+    ],
+    "weight": "380g",
+    "dimensions": "9cm x 9cm x 11cm"
+  },
+  {
+    "id": "tshirt-001",
+    "name": "Classic Cotton T-Shirt",
+    "description": "100% premium cotton comfortable t-shirt for everyday wear. Pre-shrunk fabric with perfect fit.",
+    "price": 899,
+    "currency": "INR",
+    "category": "clothing",
+    "subcategory": "tops",
+    "color": "black",
+    "material": "100% cotton",
+    "size": "M",
+    "brand": "Comfort Wear",
+    "tags": [
+      "cotton",
+      "basic",
+      "casual",
+      "everyday",
+      "comfort",
+      "pre-shrunk"
+    ],
+    "in_stock": true,
+    "stock_quantity": 67,
+    "rating": 4.3,
+    "review_count": 45,
+    "images": [
+      "tshirt-001-1.jpg"
+    ],
+    "features": [
+      "100% Cotton",
+      "Pre-shrunk",
+      "Machine Wash",
+      "Regular Fit"
+    ],
+    "weight": "180g",
+    "dimensions": "Size M: Chest 38-40 inches"
+  },
+  {
+    "id": "tshirt-002",
+    "name": "Premium Cotton Polo T-Shirt",
+    "description": "Premium quality cotton polo t-shirt with better fit and durable fabric. Perfect for casual and semi-formal occasions.",
+    "price": 1299,
+    "currency": "INR",
+    "category": "clothing",
+    "subcategory": "tops",
+    "color": "white",
+    "material": "100% cotton",
+    "size": "L",
+    "brand": "Urban Classic",
+    "tags": [
+      "polo",
+      "premium",
+      "cotton",
+      "formal-casual",
+      "durable",
+      "collared"
+    ],
+    "in_stock": true,
+    "stock_quantity": 28,
+    "rating": 4.6,
+    "review_count": 32,
+    "images": [
+      "tshirt-002-1.jpg",
+      "tshirt-002-2.jpg"
+    ],
+    "features": [
+      "Polo Collar",
+      "Premium Cotton",
+      "Slim Fit",
+      "Durable Fabric"
+    ],
+    "weight": "200g",
+    "dimensions": "Size L: Chest 40-42 inches"
+  },
+  {
+    "id": "hoodie-001",
+    "name": "Classic Black Hoodie",
+    "description": "Warm and comfortable black hoodie for casual wear. Perfect for winter seasons with soft inner lining.",
+    "price": 2499,
+    "currency": "INR",
+    "category": "clothing",
+    "subcategory": "outerwear",
+    "color": "black",
+    "material": "80% cotton, 20% polyester",
+    "size": "M",
+    "brand": "Street Style",
+    "tags": [
+      "hoodie",
+      "winter",
+      "casual",
+      "warm",
+      "comfortable",
+      "hooded"
+    ],
+    "in_stock": true,
+    "stock_quantity": 15,
+    "rating": 4.4,
+    "review_count": 56,
+    "images": [
+      "hoodie-001-1.jpg"
+    ],
+    "features": [
+      "Kangaroo Pocket",
+      "Soft Lining",
+      "Adjustable Hood",
+      "Ribbed Cuffs"
+    ],
+    "weight": "550g",
+    "dimensions": "Size M: Chest 40-42 inches"
+  },
+  {
+    "id": "hoodie-002",
+    "name": "Soft Grey Hoodie with Front Pocket",
+    "description": "Soft grey hoodie with spacious front pocket. Made from premium fabric blend for ultimate comfort.",
+    "price": 2299,
+    "currency": "INR",
+    "category": "clothing",
+    "subcategory": "outerwear",
+    "color": "grey",
+    "material": "80% cotton, 20% polyester",
+    "size": "L",
+    "brand": "Comfort Zone",
+    "tags": [
+      "hoodie",
+      "grey",
+      "pocket",
+      "soft",
+      "premium",
+      "comfort"
+    ],
+    "in_stock": true,
+    "stock_quantity": 22,
+    "rating": 4.8,
+    "review_count": 41,
+    "images": [
+      "hoodie-002-1.jpg",
+      "hoodie-002-2.jpg"
+    ],
+    "features": [
+      "Spacious Pocket",
+      "Premium Blend",
+      "Comfort Fit",
+      "Soft Fabric"
+    ],
+    "weight": "520g",
+    "dimensions": "Size L: Chest 42-44 inches"
+  },
+  {
+    "id": "notebook-001",
+    "name": "Handmade Leather Journal",
+    "description": "Handmade leather-bound journal with premium paper for writing and sketching. Perfect for notes, diaries, and creative work.",
+    "price": 650,
+    "currency": "INR",
+    "category": "stationery",
+    "subcategory": "journals",
+    "color": "brown",
+    "material": "genuine leather and premium paper",
+    "size": "A5",
+    "brand": "Artisan Crafts",
+    "tags": [
+      "journal",
+      "leather",
+      "writing",
+      "sketching",
+      "premium",
+      "handmade"
+    ],
+    "in_stock": true,
+    "stock_quantity": 38,
+    "rating": 4.9,
+    "review_count": 29,
+    "images": [
+      "notebook-001-1.jpg"
+    ],
+    "features": [
+      "Genuine Leather",
+      "Premium Paper",
+      "Handmade",
+      "Elegant Design"
+    ],
+    "weight": "280g",
+    "dimensions": "A5: 14.8cm x 21cm"
+  },
+  {
+    "id": "laptop-bag-001",
+    "name": "Professional Laptop Bag",
+    "description": "Water-resistant laptop bag with multiple compartments for professionals. Perfect for work and travel with padded laptop sleeve.",
+    "price": 1899,
+    "currency": "INR",
+    "category": "bags",
+    "subcategory": "laptop-bags",
+    "color": "black",
+    "material": "nylon",
+    "size": "15-inch",
+    "brand": "Urban Professional",
+    "tags": [
+      "laptop",
+      "bag",
+      "professional",
+      "water-resistant",
+      "compartments",
+      "work"
+    ],
+    "in_stock": true,
+    "stock_quantity": 12,
+    "rating": 4.5,
+    "review_count": 38,
+    "images": [
+      "laptop-bag-001-1.jpg"
+    ],
+    "features": [
+      "Water Resistant",
+      "Multiple Compartments",
+      "Padded Sleeve",
+      "Adjustable Strap"
+    ],
+    "weight": "800g",
+    "dimensions": "32cm x 45cm x 10cm"
+  },
+  {
+    "id": "headphone-001",
+    "name": "Wireless Bluetooth Headphones",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation. Perfect for music, calls, and immersive audio experience.",
+    "price": 3499,
+    "currency": "INR",
+    "category": "electronics",
+    "subcategory": "audio",
+    "color": "black",
+    "material": "plastic and metal",
+    "size": "adjustable",
+    "brand": "Audio Pro",
+    "tags": [
+      "headphones",
+      "wireless",
+      "bluetooth",
+      "noise-cancellation",
+      "audio",
+      "music"
+    ],
+    "in_stock": true,
+    "stock_quantity": 25,
+    "rating": 4.6,
+    "review_count": 67,
+    "images": [
+      "headphone-001-1.jpg",
+      "headphone-001-2.jpg"
+    ],
+    "features": [
+      "Noise Cancellation",
+      "Wireless",
+      "30hr Battery",
+      "Comfort Fit"
+    ],
+    "weight": "280g",
+    "dimensions": "18cm x 16cm x 8cm"
+  },
+  {
+    "id": "watch-001",
+    "name": "Classic Analog Watch",
+    "description": "Elegant analog watch with leather strap. Water-resistant and perfect for formal and casual occasions.",
+    "price": 2999,
+    "currency": "INR",
+    "category": "accessories",
+    "subcategory": "watches",
+    "color": "brown",
+    "material": "stainless steel and leather",
+    "size": "standard",
+    "brand": "Time Craft",
+    "tags": [
+      "watch",
+      "analog",
+      "leather-strap",
+      "water-resistant",
+      "elegant",
+      "classic"
+    ],
+    "in_stock": true,
+    "stock_quantity": 18,
+    "rating": 4.7,
+    "review_count": 42,
+    "images": [
+      "watch-001-1.jpg",
+      "watch-001-2.jpg"
+    ],
+    "features": [
+      "Water Resistant",
+      "Leather Strap",
+      "Analog Display",
+      "Scratch Resistant"
+    ],
+    "weight": "120g",
+    "dimensions": "Case: 4cm diameter"
+  },
+  {
+    "id": "backpack-001",
+    "name": "College Student Backpack",
+    "description": "Durable and spacious backpack perfect for college students. Multiple compartments for laptop, books, and accessories.",
+    "price": 1599,
+    "currency": "INR",
+    "category": "bags",
+    "subcategory": "backpacks",
+    "color": "blue",
+    "material": "polyester",
+    "size": "large",
+    "brand": "Campus Gear",
+    "tags": [
+      "backpack",
+      "college",
+      "student",
+      "laptop-compartment",
+      "durable",
+      "spacious"
+    ],
+    "in_stock": true,
+    "stock_quantity": 29,
+    "rating": 4.4,
+    "review_count": 53,
+    "images": [
+      "backpack-001-1.jpg"
+    ],
+    "features": [
+      "Laptop Compartment",
+      "Multiple Pockets",
+      "Water Resistant",
+      "Comfort Straps"
+    ],
+    "weight": "750g",
+    "dimensions": "45cm x 30cm x 15cm"
+  },
+  {
+    "id": "pen-001",
+    "name": "Premium Fountain Pen Set",
+    "description": "Elegant fountain pen set with smooth writing experience. Perfect for writing enthusiasts and professionals.",
+    "price": 1299,
+    "currency": "INR",
+    "category": "stationery",
+    "subcategory": "pens",
+    "color": "black",
+    "material": "metal and resin",
+    "size": "standard",
+    "brand": "Write Well",
+    "tags": [
+      "pen",
+      "fountain-pen",
+      "writing",
+      "elegant",
+      "smooth",
+      "professional"
+    ],
+    "in_stock": true,
+    "stock_quantity": 42,
+    "rating": 4.8,
+    "review_count": 31,
+    "images": [
+      "pen-001-1.jpg",
+      "pen-001-2.jpg"
+    ],
+    "features": [
+      "Smooth Writing",
+      "Elegant Design",
+      "Ink Refillable",
+      "Gift Box"
+    ],
+    "weight": "45g",
+    "dimensions": "14cm length"
+  },
+  {
+    "id": "speaker-001",
+    "name": "Portable Bluetooth Speaker",
+    "description": "Compact portable Bluetooth speaker with impressive sound quality. Perfect for outdoor activities and home use.",
+    "price": 2199,
+    "currency": "INR",
+    "category": "electronics",
+    "subcategory": "audio",
+    "color": "red",
+    "material": "rubber and metal",
+    "size": "compact",
+    "brand": "Sound Wave",
+    "tags": [
+      "speaker",
+      "bluetooth",
+      "portable",
+      "wireless",
+      "music",
+      "battery"
+    ],
+    "in_stock": true,
+    "stock_quantity": 20,
+    "rating": 4.5,
+    "review_count": 48,
+    "images": [
+      "speaker-001-1.jpg"
+    ],
+    "features": [
+      "Portable",
+      "10hr Battery",
+      "Water Resistant",
+      "Rich Bass"
+    ],
+    "weight": "450g",
+    "dimensions": "15cm x 5cm x 5cm"
+  },
+  {
+    "id": "shoes-001",
+    "name": "Casual Sports Shoes",
+    "description": "Comfortable casual sports shoes for everyday wear. Lightweight and breathable with good grip.",
+    "price": 2799,
+    "currency": "INR",
+    "category": "footwear",
+    "subcategory": "sports-shoes",
+    "color": "white",
+    "material": "mesh and rubber",
+    "size": "9",
+    "brand": "Active Steps",
+    "tags": [
+      "shoes",
+      "sports",
+      "casual",
+      "comfortable",
+      "lightweight",
+      "breathable"
+    ],
+    "in_stock": true,
+    "stock_quantity": 35,
+    "rating": 4.3,
+    "review_count": 61,
+    "images": [
+      "shoes-001-1.jpg",
+      "shoes-001-2.jpg"
+    ],
+    "features": [
+      "Breathable Mesh",
+      "Good Grip",
+      "Lightweight",
+      "Comfort Insole"
+    ],
+    "weight": "320g per shoe",
+    "dimensions": "Size 9: UK 9, US 10"
+  },
+  {
+    "id": "wallet-001",
+    "name": "Men's Leather Wallet",
+    "description": "Genuine leather wallet with multiple card slots and cash compartment. Slim design with RFID protection.",
+    "price": 899,
+    "currency": "INR",
+    "category": "accessories",
+    "subcategory": "wallets",
+    "color": "brown",
+    "material": "genuine leather",
+    "size": "slim",
+    "brand": "Leather Craft",
+    "tags": [
+      "wallet",
+      "leather",
+      "mens",
+      "slim",
+      "rfid",
+      "card-slots"
+    ],
+    "in_stock": true,
+    "stock_quantity": 28,
+    "rating": 4.6,
+    "review_count": 39,
+    "images": [
+      "wallet-001-1.jpg"
+    ],
+    "features": [
+      "Genuine Leather",
+      "RFID Protection",
+      "Multiple Slots",
+      "Slim Design"
+    ],
+    "weight": "120g",
+    "dimensions": "10cm x 8cm x 1cm"
+  }
+]
