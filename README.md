@@ -12,7 +12,7 @@ We just launched **Murf Falcon** – the consistently fastest TTS API, and you'r
 - Post on GitHub and share with the world on LinkedIn!
 
 ## 📅 My Challenge Progress
-I've completed the first nine days—check the daily folders for code, READMEs, and sample outputs. Each day builds on the starter, with updates to `agent.py` and more!
+Challenge complete—all 10 days conquered! Check the daily folders for code, READMEs, and sample outputs. Each day builds on the starter, with updates to `agent.py` and more!
 
 | Day | Date Completed | Focus | Key Achievements |
 |-----|----------------|-------|------------------|
@@ -25,9 +25,9 @@ I've completed the first nine days—check the daily folders for code, READMEs, 
 | **Day 7** | 28 November 2025 | Food & Grocery Ordering Voice Agent | Built QuickBasket assistant; catalog JSON with categories/recipes, cart tools (add/update/remove/view), recipe bundling (e.g., sandwich ingredients), order save to `orders/`. Tested full flows; shared LinkedIn video. [Details → Day-7/README.md](Day-7/README.md) |
 | **Day 8** | 29 November 2025 | Voice Game Master (D&D-Style Adventure) | Built Jungle Raja GM; JSON world state for locations/NPCs/quests, tools for move/status/help/riddle/save; interactive story with karma mechanics; tested full session; shared LinkedIn video. [Details → Day-8/README.md](Day-8/README.md) |
 | **Day 9** | 30 November 2025 | E-commerce Agent (ACP-Inspired) | Built voice shopping assistant with ACP-inspired flow; product catalog JSON, order persistence in `ecommerce_data/orders.json`, tools for browse/search/create_order. Tested voice ordering and shared LinkedIn video. [Details → Day-9/README.md](Day-9/README.md) |
-| **Day 10** | TBD | Advanced Agent Capabilities | Coming soon... |
+| **Day 10** | 01 December 2025 | Voice Improv Battle (Bollywood Edition) | Built single-player improv host "Raj Masala King Kapoor" with Hinglish, 3 desi scenarios/rounds, varied reactions, masala scores; persists sessions in `improv_data/`. Tested full improv battle and shared LinkedIn video. [Details → Day-10/README.md](Day-10/README.md) |
 
-*Track progress via commits, JSON order logs (e.g., sample orders from Day 2 testing: `order_20251123_100209_317531.json` for a large cappuccino), wellness logs (e.g., `wellness_log.json` entries for Day 3 moods/goals), tutor courses (Day 4), lead captures (e.g., `lead_20251126_100000.json` for Day 5), fraud DB updates (e.g., `fraud_cases.json` with confirmed_safe/fraud entries for Day 6), grocery orders (e.g., `order_20251128_143022.json` for Day 7), game saves (e.g., `save_20251129_143022.json` with karma/state for Day 8), ecommerce orders (e.g., `orders.json` with ORD- entries for Day 9), and daily videos on LinkedIn. All days build cumulatively—run the full stack for the latest agent!*
+*Track progress via commits, JSON order logs (e.g., sample orders from Day 2 testing: `order_20251123_100209_317531.json` for a large cappuccino), wellness logs (e.g., `wellness_log.json` entries for Day 3 moods/goals), tutor courses (Day 4), lead captures (e.g., `lead_20251126_100000.json` for Day 5), fraud DB updates (e.g., `fraud_cases.json` with confirmed_safe/fraud entries for Day 6), grocery orders (e.g., `order_20251128_143022.json` for Day 7), game saves (e.g., `save_20251129_143022.json` with karma/state for Day 8), ecommerce orders (e.g., `orders.json` with ORD- entries for Day 9), improv results (e.g., `bollywood_game_20251201_143022.json` with masala scores/notes for Day 10), and daily videos on LinkedIn. All days build cumulatively—run the full stack for the latest agent!*
 
 ## Repository Structure
 This is a **monorepo** that contains both the backend and frontend for building voice agent applications. It's designed to be your starting point for each day's challenge task. I've restructured it with daily folders for easy progression, and fixed submodule issues to make Day-1 and Day-2 normal directories (no more gitlinks—contents now fully visible and expandable on GitHub).
@@ -97,6 +97,13 @@ Murf-AI-10-Days-Challenge/
 │   ├── LICENSE             # MIT License for Day 9
 │   ├── README.md           # Day 9 details and setup
 │   └── start_app.sh        # Convenience script for Day 9
+├── Day-10/                 # Day 10: Voice Improv Battle (Bollywood Edition)
+│   ├── backend/            # Updated Python agent (includes src/agent.py with improv tools, improv_data/ scenarios/saves)
+│   │   └── improv_data/    # Sample improv JSONs (e.g., bollywood_scenarios.json, bollywood_game_20251201_143022.json with masala scores)
+│   ├── frontend/           # Updated Next.js UI (Bollywood-themed)
+│   ├── LICENSE             # MIT License for Day 10
+│   ├── README.md           # Day 10 details and setup
+│   └── start_app.sh        # Convenience script for Day 10
 ├── .gitignore              # Global Git ignores (e.g., .env.local, node_modules)
 └── README.md               # This main file!
 ```
@@ -111,7 +118,7 @@ The backend is based on [LiveKit's agent-starter-python](https://github.com/live
 - Integrated metrics and logging.
 - Complete test suite with evaluation framework.
 - Production-ready Dockerfile.  
-[→ Backend Documentation](./Day-1/backend/README.md) (Applies to daily backends; Day-2 has barista-specific updates in `src/agent.py`; Day-3 adds wellness persistence in `records/`; Day-4 adds multi-voice tutor system in `shared-data/`; Day-5 adds SDR FAQ/lead tools in `leads/`; Day-6 adds fraud DB load/update in `fraud_database/`; Day-7 adds ordering catalog/cart tools in `orders/`; Day-8 adds GM world/state tools in `game_saves/`; Day-9 adds ecommerce merchant layer with ProductManager, tools for list/search/create_order in `ecommerce_data/`).
+[→ Backend Documentation](./Day-1/backend/README.md) (Applies to daily backends; Day-2 has barista-specific updates in `src/agent.py`; Day-3 adds wellness persistence in `records/`; Day-4 adds multi-voice tutor system in `shared-data/`; Day-5 adds SDR FAQ/lead tools in `leads/`; Day-6 adds fraud DB load/update in `fraud_database/`; Day-7 adds ordering catalog/cart tools in `orders/`; Day-8 adds GM world/state tools in `game_saves/`; Day-9 adds ecommerce merchant layer with ProductManager, tools for list/search/create_order in `ecommerce_data/`; Day-10 adds Bollywood improv host with state/tools, scenarios/saves in `improv_data/`).
 
 ### Frontend
 The frontend is based on [LiveKit's agent-starter-react](https://github.com/livekit-examples/agent-starter-react), providing a modern, beautiful UI for interacting with your voice agents.  
@@ -140,7 +147,7 @@ cd Murf-AI-10-Days-Challenge
 
 ### 2. Backend Setup (Per Day)
 ```bash
-cd Day-*/backend  # e.g., Day-9/backend
+cd Day-*/backend  # e.g., Day-10/backend
 # Install dependencies
 uv sync
 # Copy environment file and configure
@@ -163,7 +170,7 @@ lk app env -w -d .env.local
 
 ### 3. Frontend Setup (Per Day)
 ```bash
-cd Day-*/frontend  # e.g., Day-9/frontend
+cd Day-*/frontend  # e.g., Day-10/frontend
 # Install dependencies
 pnpm install
 # Copy environment file and configure
@@ -180,7 +187,7 @@ brew install livekit
 You have two options:
 #### Option A: Use the Convenience Script (Runs Everything)
 ```bash
-# From a daily root (e.g., Day-9/)
+# From a daily root (e.g., Day-10/)
 chmod +x start_app.sh
 ./start_app.sh
 ```
@@ -209,7 +216,7 @@ Each day, you'll receive a new task that builds upon your voice agent. The tasks
 - Integrate with external APIs.
 - Build domain-specific agents (customer service, tutoring, etc.).
 - Optimize performance and user experience.  
-**Stay tuned for daily task announcements!** See `Day-2/challenges/` for official MDs.
+**Challenge complete—relive the 10-day journey!** See `Day-2/challenges/` for official MDs.
 
 ## Documentation & Resources
 - [Murf Falcon TTS Documentation](https://murf.ai/api/docs/text-to-speech/streaming).
@@ -237,8 +244,8 @@ This project is based on MIT-licensed templates from LiveKit and includes integr
 
 ## Have Fun!
 Remember, the goal is to learn, experiment, and build amazing voice AI agents. Don't hesitate to be creative and push the boundaries of what's possible with Murf Falcon and LiveKit!  
-Good luck with the challenge—I'm on Day 10 next! ☕🎙️
+Challenge complete—relive the journey! ☕🎙️
 
 ---
 
-*Built for the AI Voice Agents Challenge by murf.ai. My fork updated on November 30, 2025.*
+*Built for the AI Voice Agents Challenge by murf.ai. My fork updated on December 01, 2025.*
